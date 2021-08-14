@@ -1,0 +1,86 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: jessica.isri
+      changes:
+        - createTable:
+            tableName: us_user
+            columns:
+              - column:
+                  name: us_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: us_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: us_email
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: us_password
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: ac_account
+            columns:
+              - column:
+                  name: ac_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: ac_initial_balance
+                  type: decimal(11,8)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ac_current_balance
+                  type: decimal(11,8)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: us_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    references: us_user(us_id)
+                    foreignKeyName: fk_user_account
+        - createTable:
+            tableName: mv_moviments
+            columns:
+                - column:
+                    name: mv_id
+                    type: bigint
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: mv_value
+                    type: decimal(11,8)
+                    constraints:
+                      nullable: false
+                      unique: true
+                - column:
+                    name: mv_flow
+                    type: varchar(100)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: ac_id
+                    type: bigint
+                    constraints:
+                      nullable: false
+                      references: ac_account(ac_id)
+                      foreignKeyName: fk_moviment_account

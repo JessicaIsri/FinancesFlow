@@ -25,5 +25,6 @@ public class Moviments {
     private String flow;
 
     @ManyToOne
-    private User user;
+    @JoinColumn(name = "ac_id")
+    private Account account;
 }

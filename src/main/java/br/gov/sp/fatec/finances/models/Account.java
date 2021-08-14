@@ -20,7 +20,7 @@ public class Account {
     private Float currentBalance;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "us_id", referencedColumnName = "id")
+    @JoinColumn(name = "us_id")
     private User user;
 
 }
