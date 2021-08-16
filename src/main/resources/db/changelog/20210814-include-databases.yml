@@ -41,12 +41,12 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: ac_initial_balance
-                  type: decimal(11,8)
+                  type: decimal(10,2)
                   constraints:
                     nullable: false
               - column:
                   name: ac_current_balance
-                  type: decimal(11,8)
+                  type: decimal(10,2)
                   constraints:
                     nullable: false
               - column:
@@ -68,10 +68,15 @@ databaseChangeLog:
                       nullable: false
                 - column:
                     name: mv_value
-                    type: decimal(11,8)
+                    type: decimal(10,2)
                     constraints:
                       nullable: false
                       unique: true
+                - column:
+                    name: mv_type
+                    type: varchar(100)
+                    constraints:
+                      nullable: false
                 - column:
                     name: mv_flow
                     type: varchar(100)

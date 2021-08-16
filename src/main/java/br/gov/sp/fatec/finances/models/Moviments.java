@@ -5,11 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "mv_moviments")
-@Getter @Setter
-public class Moviments {
+@Getter
+@Setter
+public class Moviments implements Serializable {
+    private static final long serialVersionUID = 986589124772488369L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "mv_id")
@@ -19,7 +22,7 @@ public class Moviments {
     private String type;
 
     @Column(name = "mv_value")
-    private Float value;
+    private Double value;
 
     @Column(name = "mv_flow")
     private String flow;

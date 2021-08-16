@@ -4,12 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "us_user")
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = 986589124772488369L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "us_id")
@@ -23,4 +26,11 @@ public class User {
 
     @Column(name = "us_password")
     private String password;
+
+    @OneToMany(
+        mappedBy = "user",
+        fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL,
+        orphanRemoval = true)
+    private List<Account> accounts;
 }
