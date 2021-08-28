@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.finances.services.impls;
+package br.gov.sp.fatec.finances.services;
 
-public class AccountService {
+public interface AccountService {
 }

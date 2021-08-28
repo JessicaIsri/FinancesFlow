@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "ac_account")
@@ -25,5 +26,8 @@ public class Account implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "us_id")
     private User user;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+    private Set<Movements> movements;
 
 }

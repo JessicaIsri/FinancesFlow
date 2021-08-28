@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Table(name = "mv_moviments")
 @Getter
 @Setter
-public class Moviments implements Serializable {
+public class Movements implements Serializable {
     private static final long serialVersionUID = 986589124772488369L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,6 @@
 package br.gov.sp.fatec.finances.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +28,7 @@ public class User implements Serializable {
     @Column(name = "us_password")
     private String password;
 
+    @JsonIgnore
     @OneToMany(
         mappedBy = "user",
         fetch = FetchType.LAZY,
