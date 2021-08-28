@@ -13,8 +13,18 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "new")
+    @PostMapping(value = "/new")
     public User newUser(@RequestBody UserDTO userDto) throws Exception {
         return userService.newUser(userDto);
+    }
+
+    @PutMapping(value = "/update")
+    public String updatePassword(@RequestBody UserDTO userDTO) throws Exception {
+        return userService.newPassword(userDTO);
+    }
+
+    @DeleteMapping(value = "/delete")
+    public void deletePassword(@RequestBody UserDTO userDTO) {
+
     }
 }

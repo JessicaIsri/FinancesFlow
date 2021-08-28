@@ -7,4 +7,6 @@ import org.springframework.stereotype.Service;
 
 public interface UserService {
     public User newUser(UserDTO userDTO) throws Exception;
+    public String newPassword(UserDTO userDTO) throws Exception;
+    public void deleteUser(UserDTO userDTO) throws Exception;
 }

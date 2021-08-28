@@ -23,7 +23,21 @@ class FinancesApplicationTests {
 
     @Test
     void testNewUser() throws Exception {
-        UserDTO userDTO = new UserDTO("Teste", "teste@teste.com", "teste!@#");
+        UserDTO userDTO = new UserDTO("Teste", "teste@teste.com", "teste!@#", false, "");
         userService.newUser(userDTO);
+    }
+
+    @Test
+    void testNewPasswordNotOk() throws Exception {
+        UserDTO userDTO = new UserDTO("Teste", "teste@teste.com", "41241!@#", false, "");
+        assertThrows(Exception.class, () -> {userService.newPassword(userDTO);});
+    }
+
+    @Test
+    void testNewPassword() throws Exception {
+        UserDTO userDTO = new UserDTO("Teste4", "teste4@teste.com", "teste!@#", false, "");
+        userService.newUser(userDTO);
+
+        assertDoesNotThrow(() -> {userService.deleteUser(userDTO);});
     }
 }

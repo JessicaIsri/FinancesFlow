@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     public User newUser(UserDTO userDTO) throws Exception {
-        Optional<User> optionalUser = userRepository.findByEmail(userDTO.getEmail());
+        Optional<User> optionalUser = userRepository.findByEmailAndName(userDTO.getEmail(), userDTO.getName());
         if (optionalUser.isEmpty()) {
             User user = new User();
             user.setName(userDTO.getName());
@@ -28,5 +28,34 @@ public class UserServiceImpl implements UserService {
             throw new Exception("Usuário já existe");
         }
 
+    }
+
+    public String newPassword(UserDTO userDTO) throws Exception {
+        Optional<User> optionalUser = userRepository.findByEmailAndName(userDTO.getEmail(), userDTO.getName());
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            if (userDTO.getForgetPassword()) {
+                user.setPassword(userDTO.getNewPassword());
+            } else {
+                if (userDTO.getPassword().equals(user.getPassword())) {
+                    user.setPassword(userDTO.getNewPassword());
+                } else {
+                    throw new Exception("As senhas não coincidem");
+                }
+            }
+            userRepository.save(user);
+            return "Senha Atualizada sucesso";
+        } else {
+            throw new Exception("Usuário não encontrado");
+        }
+    }
+
+    public void deleteUser(UserDTO userDTO) throws Exception {
+        Optional<User> userOptional = userRepository.findByEmailAndName(userDTO.getEmail(), userDTO.getName());
+        if (userOptional.isPresent()) {
+            userRepository.delete(userOptional.get());
+        } else {
+            throw new Exception("Usuario não encontrado");
+        }
     }
 }
