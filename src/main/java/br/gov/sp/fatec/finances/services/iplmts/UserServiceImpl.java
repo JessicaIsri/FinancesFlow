@@ -15,6 +15,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow();
+    }
+
     public User newUser(UserDTO userDTO) throws Exception {
         Optional<User> optionalUser = userRepository.findByEmailAndName(userDTO.getEmail(), userDTO.getName());
         if (optionalUser.isEmpty()) {
@@ -58,4 +62,15 @@ public class UserServiceImpl implements UserService {
             throw new Exception("Usuario não encontrado");
         }
     }
+
+    public User getUserByEmailName(String email, String name) throws Exception {
+        Optional<User> optionalUser = userRepository.findByEmailAndName(email, name);
+        if (optionalUser.isPresent()) {
+            return optionalUser.get();
+        } else {
+            throw new Exception("Usuário não encontrado");
+        }
+    }
+
+
 }

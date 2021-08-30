@@ -9,4 +9,6 @@ public interface UserService {
     public User newUser(UserDTO userDTO) throws Exception;
     public String newPassword(UserDTO userDTO) throws Exception;
     public void deleteUser(UserDTO userDTO) throws Exception;
+    public User getUserByEmailName(String email, String name) throws Exception;
+    public User getUserById(Long id);
 }

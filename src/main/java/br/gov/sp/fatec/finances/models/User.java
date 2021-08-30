@@ -1,6 +1,8 @@
 package br.gov.sp.fatec.finances.models;
 
+import br.gov.sp.fatec.finances.controllers.view.View;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,16 +21,18 @@ public class User implements Serializable {
     @Column(name = "us_id")
     private Long id;
 
+    @JsonView({View.User.class, View.UserComplete.class})
     @Column(name = "us_name")
     private String name;
 
+    @JsonView({View.User.class, View.UserComplete.class})
     @Column(name = "us_email")
     private String email;
 
+    @JsonView({View.User.class, View.UserComplete.class})
     @Column(name = "us_password")
     private String password;
 
-    @JsonIgnore
     @OneToMany(
         mappedBy = "user",
         fetch = FetchType.LAZY,

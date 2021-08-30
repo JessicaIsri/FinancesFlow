@@ -1,5 +1,7 @@
 package br.gov.sp.fatec.finances.models;
 
+import br.gov.sp.fatec.finances.controllers.view.View;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,9 +19,11 @@ public class Account implements Serializable {
     @Column(name = "ac_id")
     private Long id;
 
+    @JsonView(View.Account.class)
     @Column(name = "ac_initial_balance")
     private Double initialBalance;
 
+    @JsonView(View.Account.class)
     @Column(name = "ac_current_balance")
     private Double currentBalance;
 
