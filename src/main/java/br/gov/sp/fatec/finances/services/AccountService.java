@@ -6,4 +6,5 @@ import br.gov.sp.fatec.finances.models.dtos.AccountDTO;
 public interface AccountService {
     public Account newAccount(AccountDTO accountDTO);
     public void deleteAccount(Long id);
+    public Account getAccountById(Long id);
 }

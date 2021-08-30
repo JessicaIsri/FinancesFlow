@@ -17,6 +17,10 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     UserService userService;
 
+    public Account getAccountById(Long id) {
+        return accountRepository.findById(id).orElseThrow();
+    }
+
     public Account newAccount(AccountDTO accountDTO) {
         final var user  = userService.getUserById(accountDTO.getUserID());
         final var account = new Account();
