@@ -6,6 +6,7 @@ import br.gov.sp.fatec.finances.repositories.AccountRepository;
 import br.gov.sp.fatec.finances.services.AccountService;
 import br.gov.sp.fatec.finances.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,7 +21,7 @@ public class AccountServiceImpl implements AccountService {
     public Account getAccountById(Long id) {
         return accountRepository.findById(id).orElseThrow();
     }
-
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public Account newAccount(AccountDTO accountDTO) {
         final var user  = userService.getUserById(accountDTO.getUserID());
         final var account = new Account();
@@ -31,7 +32,7 @@ public class AccountServiceImpl implements AccountService {
 
         return accountRepository.save(account);
     }
-
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public void deleteAccount(Long id) {
         accountRepository.deleteById(id);
     }

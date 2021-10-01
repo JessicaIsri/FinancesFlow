@@ -15,4 +15,6 @@ public class UserDTO {
     private String password;
     private Boolean forgetPassword;
     private String newPassword;
+    private String token;
+    private String autorizacao;
 }

@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findTopByOrderByIdAsc();
+    User findTop1ByNameOrEmail(String username, String email);
     Optional<User> findByEmailAndName(String email, String name);
 }

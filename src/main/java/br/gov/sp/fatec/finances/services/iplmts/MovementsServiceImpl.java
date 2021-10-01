@@ -7,6 +7,7 @@ import br.gov.sp.fatec.finances.repositories.MovementsRepository;
 import br.gov.sp.fatec.finances.services.AccountService;
 import br.gov.sp.fatec.finances.services.MovementsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -22,6 +23,7 @@ public class MovementsServiceImpl implements MovementsService {
     AccountRepository accountRepository;
 
     @Transactional
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public Movements newMovement(MovementsDTO movementsDTO) {
         final var account = accountService.getAccountById(movementsDTO.getAccountId());
         Movements movements = new Movements();

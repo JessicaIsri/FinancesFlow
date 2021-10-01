@@ -1,13 +1,17 @@
 package br.gov.sp.fatec.finances.services.iplmts;
 
+import br.gov.sp.fatec.finances.models.Autorization;
 import br.gov.sp.fatec.finances.models.User;
 import br.gov.sp.fatec.finances.models.dtos.UserDTO;
 import br.gov.sp.fatec.finances.repositories.UserRepository;
 import br.gov.sp.fatec.finances.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -72,5 +76,22 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findTop1ByNameOrEmail(username, username);
+        if (user == null) {
+            throw new UsernameNotFoundException("Usuário "
+                    + username
+                    + " não encontrado");
+        }
 
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(username).password(user.getPassword())
+                .authorities(user.getAutorizations()
+                        .stream().map(Autorization::getNome)
+                        .collect(Collectors.toList())
+                        .toArray(new String[user.getAutorizations().size()])).
+                build();
+
+    }
 }
