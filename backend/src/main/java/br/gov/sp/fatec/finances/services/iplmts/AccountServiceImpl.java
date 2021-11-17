@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountServiceImpl implements AccountService {
 
@@ -35,5 +37,10 @@ public class AccountServiceImpl implements AccountService {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public void deleteAccount(Long id) {
         accountRepository.deleteById(id);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    public List<Account> listAccounts(Long userId) {
+        return accountRepository.findAccountByUser_Id(userId);
     }
 }

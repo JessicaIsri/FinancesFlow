@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/account")
 @CrossOrigin
@@ -24,6 +26,18 @@ public class AccountController {
     @DeleteMapping(value = "/delete/{id}")
     public void deleteAccount(@PathVariable("id") Long id) {
         accountService.deleteAccount(id);
+    }
+
+    @GetMapping(value = "listAll/{id}")
+    @JsonView(View.Account.class)
+    public List<Account> listAccount(@PathVariable("id") Long id) {
+        return accountService.listAccounts(id);
+    }
+
+    @GetMapping(value = "{id}")
+    @JsonView({View.Account.class})
+    public Account getAccount(@PathVariable("id") Long id) {
+        return accountService.getAccountById(id);
     }
 
 

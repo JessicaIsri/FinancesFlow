@@ -16,6 +16,8 @@ public class Account implements Serializable {
     private static final long serialVersionUID = 986589124772488369L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(View.Account.class)
+
     @Column(name = "ac_id")
     private Long id;
 
