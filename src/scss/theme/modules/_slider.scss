@@ -1,0 +1,39 @@
+.slider__wrapper {
+  margin: 0px -28px;
+}
+
+.slider-item {
+  padding: 7.5px;
+}
+
+.slider-item:focus {
+  outline: none;
+}
+
+.slider-controll {
+  position: absolute !important;
+  margin: auto;
+  top: calc(50% - 20px);
+  bottom: 0;
+  height: 40px;
+  width: 24px;
+  min-width: unset !important;
+  padding: 0px !important;
+}
+
+.slider-controll--left {
+  left: 0px;
+}
+
+.slider-controll--right {
+  right: 0px;
+}
+
+// Component customization
+.ngucarousel {
+  padding: 0px 20px;
+}
+
+.ngu-touch-container {
+  overflow: hidden;
+}

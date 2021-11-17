@@ -1,0 +1,38 @@
+@import '~ag-grid-community/dist/styles/ag-grid.css';
+@import '~ag-grid-community/dist/styles/ag-theme-balham.css';
+
+.lib-grid-header-silver {
+  font-size: 0.65rem;
+  color: #000;
+  background-color: #b7b7b7ff;
+}
+
+.lib-grid-header-yellow {
+  font-size: 0.65rem;
+  color: #000;
+  background-color: #ffff00ff;
+}
+
+.lib-grid-header-blue {
+  font-size: 0.65rem;
+  color: #ffffff;
+  background-color: #6d9eebff;
+}
+
+.lib-grid-header-red {
+  font-size: 0.65rem;
+  color: #ffffff;
+  background-color: #ff0000ff;
+}
+
+.lib-grid-header-orange {
+  font-size: 0.65rem;
+  color: #ffffff;
+  background-color: #ff9800;
+}
+
+.lib-grid-header-blue-light {
+  font-size: 0.65rem;
+  color: #000;
+  background-color: #dbe5f1ff;
+}

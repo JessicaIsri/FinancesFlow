@@ -1,0 +1,13 @@
+.chip-icon {
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.my-chip {
+  margin: 7.5px 7.5px 7.5px 0px !important;
+
+  .chip-icon {
+    margin-right: 3.25px;
+  }
+}

@@ -1,0 +1,15 @@
+.new-color{
+  color: #372841;
+}
+.mat-toolbar.mat-primary {
+  background: #372841;
+  color: #fff;
+}
+
+.img-padding{
+  padding-top: 4%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

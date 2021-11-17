@@ -1,0 +1,129 @@
+.data-table {
+  table-layout: unset;
+  width: 100%;
+  font-weight: 500;
+  margin-top: 7.5px;
+
+  th {
+    vertical-align: top;
+  }
+
+  td,
+  th {
+    padding: 10px 10px 10px 0px;
+  }
+
+  th {
+    font-weight: 500;
+    font-size: 12;
+    color: hsl(0, 0%, 14%);
+  }
+
+  tr {
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  // tr:first-child{
+  //   border-top: 1px solid #F1F1F1
+  // }
+  tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+}
+
+.data-table__card {
+  display: flex;
+  padding-left: 10px;
+
+  .data-table__icon {
+    flex-shrink: 0;
+  }
+
+  .data-table__text {
+    white-space: nowrap;
+  }
+}
+
+.data-table__icon {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-color: #f6f6f6;
+  // background-color:rgba(245, 108, 41, 0.1);
+  background-color: #ffeaed;
+  font-weight: 600;
+  color: #ed1c23;
+  border-radius: 7px;
+  margin-right: 10px;
+}
+
+.data-table__text {
+  p {
+    font-size: 14px;
+    font-weight: 600;
+    color: hsl(0, 0%, 14%);
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    color: hsl(0, 0%, 40%);
+    margin: 0px;
+    margin-bottom: 5px;
+  }
+
+  span:not(:first-child) {
+    margin-right: 10px;
+  }
+}
+
+.data-table td.data-table__filler {
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 760px) {
+  .data-table__card {
+    padding-left: 0px;
+  }
+
+  .data-table {
+    border: 0;
+    vertical-align: middle;
+  }
+
+  .data-table tbody tr {
+    display: block;
+
+    &:hover {
+      background-color: unset;
+    }
+  }
+
+  .data-table thead {
+    display: none;
+  }
+
+  .data-table tbody td {
+    display: block;
+    margin: 5px;
+  }
+  .data-table tbody td:before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 500;
+    font-size: 12px;
+    color: hsl(0, 0%, 14%);
+    margin-bottom: 5px;
+  }
+  .data-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+
+  .data-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
+}

@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><img class="img-padding" src="../../../../assets/images/logo-wallefyy.svg" alt=""></span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menuprofile">
+      <img ngxGravatar/>
+      <span class="example-user-name">Usuario aqui</span>
+    </button>
+    <mat-menu #menuprofile="matMenu">
+      <button  mat-menu-item>Sair</button>
+    </mat-menu>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span class="example-spacer"></span>
+    <button  mat-button><mat-icon>add_to_photos</mat-icon> Nova Conta</button>
+    <button  mat-button><mat-icon>add_to_photos</mat-icon> Nova Transação</button>
+    <button  mat-button><mat-icon>group_add</mat-icon> Cadastrar Usuário</button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

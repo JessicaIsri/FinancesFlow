@@ -1,0 +1,64 @@
+.back_login {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background-image: url('./theme/img/login_v3.jpg');
+  background-position: bottom center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.login_container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.login_box {
+  overflow-y: auto;
+  width: 40%;
+  height: 100%;
+  margin-right: auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  opacity: 1;
+  padding: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .login_box {
+    width: 100%;
+    opacity: 1;
+    margin: 0 auto;
+    height: auto;
+    box-shadow: none;
+  }
+  .back_login {
+    padding-top: 10vh;
+    background-image: none;
+  }
+  .login_box form {
+    width: 95%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .login_box {
+    overflow-y: auto;
+    width: 344px;
+    height: 536px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 1;
+    padding: 2em;
+    margin: 0 0 0 7em;
+    border-radius: 1em;
+  }
+}
