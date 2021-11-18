@@ -1,0 +1,57 @@
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7.5px;
+  background: #dedede;
+  border-radius: 7px;
+  width: 50px;
+  height: 50px;
+
+  .icon {
+    font-size: 24px !important;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.bubble--round {
+  border-radius: 100%;
+}
+
+// colors
+@each $color, $weights in $theme_colors {
+  .bubble--#{$color} {
+    background-color: map-get($weights, light);
+    color: map-get($weights, strong);
+  }
+}
+
+$icon_sizes: (
+  sm: (
+    bubble: 30px,
+    icon: 18px
+  ),
+  md: (
+    bubble: 36px,
+    icon: 22px
+  ),
+  lg: (
+    bubble: 60px,
+    icon: 32px
+  )
+);
+
+// sizes
+@each $size, $parts in $icon_sizes {
+  .bubble--#{$size} {
+    width: map-get($parts, bubble);
+    height: map-get($parts, bubble);
+
+    .icon {
+      font-size: map-get($parts, icon) !important;
+      width: map-get($parts, icon);
+      height: map-get($parts, icon);
+    }
+  }
+}

@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+@import './modules/_vars.scss';
+@import './modules/_icons.scss';
+@import './modules/_button.scss';
+@import './modules/_cards.scss';
+@import './modules/_progress.scss';
+@import './modules/_input.scss';
+@import './modules/_reset.scss';
+@import './modules/_tables.scss';
+@import './modules/_slider.scss';
+@import './modules/_blocks.scss';
+@import './modules/_helpers';
+@import './modules/_toggle-menu';
+@import './modules/_admin-layout';
+@import './modules/_outside-layout';
+@import './modules/_chips';
+@import './modules/_map.scss';
+@import './modules/_helpers';
+@import './modules/_vans';
+
+*,
+p,
+h1,
+h2,
+h3,
+b,
+i,
+u,
+ul,
+li,
+ol,
+a,
+button,
+input,
+textarea {
+  font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Montserrat', sans-serif;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+// Chrome update
+// https://support.google.com/chrome/thread/48974735?hl=en
+// https://www.tutorialrepublic.com/faq/how-to-remove-outline-around-text-input-boxes-in-chrome-using-css.php
+input:focus,
+textarea:focus,
+select:focus,
+option:focus,
+button:focus {
+  outline: none !important;
+}
+
+.mt-0 {
+  margin-top: 0px !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-a-center {
+  align-items: center;
+}
+
+.flex-j-center {
+  justify-content: center;
+}
+
+.cicklable {
+  cursor: pointer !important;
+}

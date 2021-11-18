@@ -1,0 +1,12 @@
+.van__passage-card {
+  display: flex;
+  align-items: center;
+
+  & > mat-icon {
+    margin-right: 5px;
+  }
+
+  .bubble {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,18 @@
+//Material personalization
+
+mat-form-field.mdc-field {
+  font-size: 14px;
+  margin: 7.5px 0px !important;
+  margin-bottom: 10px !important;
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0px !important;
+    margin: 0px !important;
+  }
+}
+
+mat-form-field.mdc-form-field {
+  width: 100%;
+  font-size: 14px;
+  margin: 5px 0px !important;
+}

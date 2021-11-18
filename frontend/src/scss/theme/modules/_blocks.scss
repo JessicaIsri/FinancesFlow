@@ -1,0 +1,104 @@
+.empty-area {
+  text-align: center;
+  padding: 20px;
+
+  i,
+  mat-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: hsl(0, 0%, 29%);
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: hsl(0, 0%, 29%);
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    color: hsl(0, 0%, 40%);
+  }
+}
+
+.content {
+  padding: 0px;
+  min-height: unset;
+  margin: 45px 0px 0px 0px;
+}
+
+.content--full {
+  padding: 0px;
+  min-height: 75vh;
+  margin: 45px 0px 30px 0px;
+}
+
+div.section-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  h2 {
+    margin-bottom: 0px !important;
+  }
+
+  margin-bottom: 10px;
+}
+
+h2.section-title,
+div.section-title h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: hsl(0, 0%, 40%);
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.section-title__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: hsl(0, 0%, 14%);
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.fancy-text {
+  h4 {
+    @extend %text--nowrap;
+    @include text-style(strong, 600);
+    display: flex;
+    align-items: center;
+    margin: 0px;
+  }
+
+  p {
+    @extend %text--nowrap;
+    @include text-style(soft, 500);
+    display: flex;
+    align-items: center;
+    margin: 0px;
+  }
+
+  span {
+    @extend %text--nowrap;
+    @include text-style(light, 500);
+    display: flex;
+    align-items: center;
+    margin: 0px;
+  }
+
+  .icon {
+    height: 16px;
+    width: 16px;
+    font-size: 16px;
+  }
+}

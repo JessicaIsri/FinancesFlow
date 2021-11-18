@@ -1,0 +1,65 @@
+$theme_colors: (
+  green: (
+    strong: #1b5e1f,
+    soft: #4caf50,
+    light: #e8f5e9
+  ),
+  yellow: (
+    strong: #ff9800,
+    soft: #ffcb7f,
+    light: #fee5b3
+  ),
+  red: (
+    strong: $default-color,
+    soft: $default-color,
+    light: #ffeaed
+  ),
+  silver: (
+    strong: #616161,
+    soft: #bdbdbd,
+    light: #f5f5f5
+  ),
+  orange: (
+    strong: #ff5722,
+    soft: #ff9e7f,
+    light: #ffe4d6
+  ),
+  purple: (
+    strong: #304ffe,
+    soft: #9daaee,
+    light: #d6ddff
+  ),
+  pink: (
+    strong: #e91e63,
+    soft: #ee8faf,
+    light: #fadce6
+  ),
+  violet: (
+    strong: #673ab7,
+    soft: #cebcee,
+    light: #e7def7
+  ),
+  blue: (
+    strong: #00bcd4,
+    soft: #8fe4ee,
+    light: #dcf6fa
+  )
+);
+
+// Text stuff
+$text-colors: (
+  strong: hsl(0, 0%, 14%),
+  soft: hsl(0, 0%, 29%),
+  light: hsl(0, 0%, 40%)
+);
+
+%text--nowrap {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin text-style($color, $weight: 500) {
+  color: map-get($map: $text-colors, $key: $color);
+  font-weight: $weight;
+}

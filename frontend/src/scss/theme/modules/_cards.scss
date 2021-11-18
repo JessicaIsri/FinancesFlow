@@ -1,0 +1,70 @@
+/*código referente aos cards */
+.card {
+  box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2);
+  border-radius: 6px;
+  min-height: unset;
+  display: block;
+  background: #fff;
+  width: 100%;
+  transition: all ease 0.5s;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.card__title {
+  flex: 1;
+  min-width: 0;
+
+  p {
+    @extend %text--nowrap;
+    @include text-style(strong, 600);
+    margin: 0px;
+  }
+
+  span {
+    @extend %text--nowrap;
+    @include text-style(light, 500);
+    display: block;
+    margin: 0px;
+  }
+}
+
+.card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.card__indicator {
+  & > img {
+    height: 50px;
+  }
+
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.card__body {
+  padding: 15px;
+}
+
+.card--clickable {
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 1px 6px 0 hsla(0, 0%, 0%, 0.4);
+  }
+}
+
+.card--noborder {
+  box-shadow: unset;
+
+  &:hover {
+    box-shadow: unset;
+  }
+}
