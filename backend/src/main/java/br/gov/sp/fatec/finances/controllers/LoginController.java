@@ -20,7 +20,7 @@ public class LoginController {
 
     private AuthenticationManager authenticationManager;
 
-    @PostMapping(path = "/login")
+    @PostMapping(path = "api/login")
     public UserDTO login(@RequestBody UserDTO login)
             throws JsonProcessingException {
         UsernamePasswordAuthenticationToken authenticationToken =
