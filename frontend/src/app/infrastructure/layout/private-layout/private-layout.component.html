@@ -4,10 +4,10 @@
     <span class="example-spacer"></span>
     <button mat-button [matMenuTriggerFor]="menuprofile">
       <img ngxGravatar/>
-      <span class="example-user-name">Usuario aqui</span>
+      <span class="example-user-name">{{ userName }}</span>
     </button>
     <mat-menu #menuprofile="matMenu">
-      <button  mat-menu-item>Sair</button>
+      <button (click)="logout()"  mat-menu-item>Sair</button>
     </mat-menu>
   </mat-toolbar-row>
   <mat-toolbar-row>

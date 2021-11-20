@@ -24,6 +24,7 @@ import { metaReducers, reducers } from './reducers';
     AuthenticateModule,
     LayoutModule,
     StoreModule.forRoot(reducers, {metaReducers}),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

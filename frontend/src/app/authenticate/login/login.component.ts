@@ -1,4 +1,4 @@
-import { AuthenticateService } from '../authenticate.service'
+import { AuthenticateService } from '../services/authenticate.service'
 import { User } from './../../models/user.model';
 
 import { Component, OnInit } from '@angular/core';
@@ -6,7 +6,7 @@ import { select, Store } from '@ngrx/store';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, takeWhile } from 'rxjs';
 import { ElementState } from 'src/app/models/element-state';
-import { AppState } from 'src/app/reducers';
+import { AppState, selectAuthState } from 'src/app/reducers';
 import * as LoginStore from '../../store';
 import { Credentials } from 'src/app/models/credentials.model';
 
@@ -22,13 +22,16 @@ export class LoginComponent implements OnInit {
 
   form!: FormGroup;
   submitState$?: Observable<ElementState>;
+  getState: Observable<any>;
   alive = true;
+  errorMessage?: string | null;
 
   user: User = new User();
   constructor(
     private store$: Store<AppState>,
-    private loginService: AuthenticateService
+    private loginService: AuthenticateService,
   ) {
+    this.getState = this.store$.select(selectAuthState);
     this.form = new FormGroup({
     name: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)])
@@ -36,19 +39,15 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.submitState$ = this.store$
-      .pipe(select(LoginStore.selectSubmit))
-      .pipe(takeWhile(() => this.alive));
-
-    console.log(this.submitState$)
+    this.getState.subscribe((state) => {
+      this.errorMessage = state.errorMessage;
+    });
   }
 
   onSubmit(): void {
     if (this.form.invalid) {
       return this.store$.dispatch(new LoginStore.LoginRequestFailure({
-        success: false,
-        message: 'Please enter a valid email and password',
-        payload: {}
+        error: 'Campos invalidos'
       }));
     }
     const credentials: Credentials = this.form.value;
