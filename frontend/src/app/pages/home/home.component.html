@@ -2,18 +2,30 @@
   <div class="col-sm card-padding">
     <mat-card class="">
       <mat-card-title>Entradas <mat-icon>arrow_upward</mat-icon></mat-card-title>
-      Simple card
+      {{inputs}}
     </mat-card>
   </div>
   <div class="col-sm card-padding" >
     <mat-card class="">
       <mat-card-title>Saídas <mat-icon>arrow_downward</mat-icon></mat-card-title>
-      Simple card2</mat-card>
+      {{outputs}}
+      </mat-card>
   </div>
   <div class="col-sm card-padding">
     <mat-card class="">
-      <mat-card-title>Total <mat-icon> attach_money</mat-icon></mat-card-title>
-      Simple card3</mat-card>
+      <mat-card-title>Saldo Inicial<mat-icon> attach_money</mat-icon></mat-card-title>
+      <div *ngIf="accounts != null">
+        {{accounts?.initialBalance}}
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-sm card-padding">
+    <mat-card class="">
+      <mat-card-title>Saldo Atual<mat-icon> attach_money</mat-icon></mat-card-title>
+      <div *ngIf="accounts != null">
+        {{accounts?.currentBalance}}
+      </div>
+    </mat-card>
   </div>
   <mat-divider></mat-divider>
   <span class="historico">Histórico</span>

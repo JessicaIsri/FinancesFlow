@@ -17,9 +17,12 @@ public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(View.Account.class)
-
     @Column(name = "ac_id")
     private Long id;
+
+    @JsonView(View.Account.class)
+    @Column(name = "name")
+    private String name;
 
     @JsonView(View.Account.class)
     @Column(name = "ac_initial_balance")

@@ -9,5 +9,5 @@ public interface AccountService {
     public Account newAccount(AccountDTO accountDTO);
     public void deleteAccount(Long id);
     public Account getAccountById(Long id);
-    public List<Account> listAccounts(Long userId);
+    public List<Account> listAccounts(String userId);
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/account")
+@RequestMapping(value = "api/account")
 @CrossOrigin
 public class AccountController {
     @Autowired
@@ -30,7 +30,7 @@ public class AccountController {
 
     @GetMapping(value = "listAll/{id}")
     @JsonView(View.Account.class)
-    public List<Account> listAccount(@PathVariable("id") Long id) {
+    public List<Account> listAccount(@PathVariable("id") String id) {
         return accountService.listAccounts(id);
     }
 
@@ -39,6 +39,7 @@ public class AccountController {
     public Account getAccount(@PathVariable("id") Long id) {
         return accountService.getAccountById(id);
     }
+
 
 
 }

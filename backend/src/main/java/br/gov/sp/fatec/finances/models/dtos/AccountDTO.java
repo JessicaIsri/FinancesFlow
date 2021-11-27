@@ -7,6 +7,7 @@ import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class AccountDTO {
+    private String name;
     private Double initialBalance;
     private Double currentBalance;
     private Long userID;

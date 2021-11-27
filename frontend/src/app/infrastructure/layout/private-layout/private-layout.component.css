@@ -13,3 +13,7 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.select-style{
+  font-size: 10px
+}

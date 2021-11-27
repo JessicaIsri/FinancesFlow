@@ -12,10 +12,17 @@
   </mat-toolbar-row>
   <mat-toolbar-row>
     <span class="example-spacer"></span>
-    <button  mat-button><mat-icon>add_to_photos</mat-icon> Nova Conta</button>
-    <button  mat-button><mat-icon>add_to_photos</mat-icon> Nova Transação</button>
-    <button  mat-button><mat-icon>group_add</mat-icon> Cadastrar Usuário</button>
-
+    <button [routerLink]="'account'" mat-button><mat-icon>add_to_photos</mat-icon> Nova Conta</button>
+    <button [routerLink]="'movements'" mat-button><mat-icon>add_to_photos</mat-icon> Nova Transação</button>
+    <!-- <button  mat-button><mat-icon>group_add</mat-icon> Cadastrar Usuário</button> -->
+    <mat-form-field appearance="fill" class="select-style">
+      <mat-label class="select-style">Conta</mat-label>
+      <mat-select (selectionChange)="changeAccount($event)">
+        <mat-option *ngFor="let account of accounts" [value]="account">
+          {{account.id}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

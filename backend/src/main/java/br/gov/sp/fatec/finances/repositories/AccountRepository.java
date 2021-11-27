@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
     Optional<Account> findTopByOrderByIdAsc();
-    List<Account> findAccountByUser_Id(Long userId);
+    List<Account> findAccountByUser_Name(String userId);
 
 }

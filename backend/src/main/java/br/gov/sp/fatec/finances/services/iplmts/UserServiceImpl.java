@@ -76,6 +76,10 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    public User getUserByName(String name) {
+        return userRepository.findTop1ByNameOrEmail(name, name);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findTop1ByNameOrEmail(username, username);

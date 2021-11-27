@@ -23,12 +23,13 @@ public class AccountServiceImpl implements AccountService {
     public Account getAccountById(Long id) {
         return accountRepository.findById(id).orElseThrow();
     }
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public Account newAccount(AccountDTO accountDTO) {
         final var user  = userService.getUserById(accountDTO.getUserID());
         final var account = new Account();
 
         account.setUser(user);
+        account.setName(accountDTO.getName());
         account.setInitialBalance(accountDTO.getInitialBalance());
         account.setCurrentBalance(accountDTO.getCurrentBalance());
 
@@ -40,7 +41,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    public List<Account> listAccounts(Long userId) {
-        return accountRepository.findAccountByUser_Id(userId);
+    public List<Account> listAccounts(String user) {
+        return accountRepository.findAccountByUser_Name(user);
     }
 }

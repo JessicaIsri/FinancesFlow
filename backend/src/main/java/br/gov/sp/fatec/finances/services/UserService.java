@@ -12,4 +12,5 @@ public interface UserService extends UserDetailsService {
     public void deleteUser(UserDTO userDTO) throws Exception;
     public User getUserByEmailName(String email, String name) throws Exception;
     public User getUserById(Long id);
+    public User getUserByName(String name);
 }
